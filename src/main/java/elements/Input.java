@@ -16,7 +16,7 @@ public class Input {
     private static final String INPUT_XPATH = "//*[contains(text(), '%s')]/ancestor::div[contains(@part,'input-text')]//input";
     private static final String TEXTAREA_XPATH = "//*[contains(text(), '%s')]/ancestor::*[contains(@slot, 'inputField')]//textarea";
     private static final String INPUT_DROPDOWN = "//label[contains(text(), '%s')]/following-sibling::div//input";
-    private static final String DROPDOWN_TEXT = "//*[text() = '%s']";
+    private static final String DROPDOWN_TEXT = "//label[contains(text(),'%s')]/ancestor::lightning-grouped-combobox[contains(@class,'slds-form-element')]//*[@title='%s']";
 
     public Input(WebDriver driver, String label) {
         this.driver = driver;
@@ -32,9 +32,9 @@ public class Input {
     }
 
     public void writeTextToInputDropdown(String text) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.findElement(By.xpath(String.format(INPUT_DROPDOWN, label))).sendKeys(text);
-        WebElement newContactText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(String.format(DROPDOWN_TEXT, text))));
+        WebElement newContactText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(String.format(DROPDOWN_TEXT, label, text))));
         newContactText.click();
     }
 }

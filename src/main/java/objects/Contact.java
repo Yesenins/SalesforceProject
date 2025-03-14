@@ -15,6 +15,7 @@ public class Contact {
     private String contactAccountName;
     private String description;
     private String phone;
+    private String contactOwner;
 
     public String getFullName() {
         return getContactFirstName() + " " + getContactLastName();

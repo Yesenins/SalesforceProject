@@ -28,8 +28,9 @@ public class NewContactsModalPage extends BasePage{
         super(driver);
     }
 
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     public NewContactsModalPage createNewContactButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement dropdown = driver.findElement(By.xpath("//*[@data-id=\"Contact\"]//*[@role=\"button\"]"));
         dropdown.click();
         WebElement newContact = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[href=\"/003/e?sObjectName=Contact&save_new_url=%2F003%2Fe&navigationLocation=LIST_VIEW\"]")));
@@ -51,6 +52,7 @@ public class NewContactsModalPage extends BasePage{
         new Input(driver, "Account Name").writeTextToInputDropdown(contact.getContactAccountName());
         new Input(driver, "Description").writeTextToTextarea(contact.getDescription());
         new Input(driver, "Phone").writeTextToInput(contact.getPhone());
+
         new Button(driver).clickButton(saveButton);
     }
 }
