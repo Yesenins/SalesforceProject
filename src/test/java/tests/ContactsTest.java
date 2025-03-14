@@ -18,16 +18,13 @@ public class ContactsTest extends BaseTest{
         loginPage.openPage(LOGIN_URL)
                 .login(username, password);
         newContactsModalPage.openPage(NEW_CONTACT_MODAL_URL)
+                .openPage(NEW_CONTACT_MODAL_URL)
                 .createNewContact(contact);
-//        newContactsModalPage.createNewContactButton()
-//                        .createNewContact(contact);
         contactsListPage.openPage(CONTACT_LIST_URL);
-        String contactName =contact.getContactFirstName() + " " + contact.getContactLastName();
-      Assert.assertEquals(contactsListPage.getExistContactName(contact.getContactFirstName(),contact.getContactLastName()), contactName);
+      Assert.assertEquals(contactsListPage.getExistContactName(contact.getContactFirstName(),contact.getContactLastName()), contact.getFullName());
       Assert.assertEquals(contactsListPage.getExistPhoneNumberByContactName(contact.getContactFirstName(),contact.getContactLastName()),contact.getPhone());
         contactsListPage
                 .clickOnContactName(contact.getContactFirstName(),contact.getContactLastName());
-        String nameWithSalutation = contact.getSalutation() + " " + contactName;
-        Assert.assertEquals(contactsPage.getFieldValueByNameContacts("Name"), nameWithSalutation);
+        Assert.assertEquals(contactsPage.getFieldValueByNameContacts("Name"), contact.getNameWithSalutation());
     }
 }

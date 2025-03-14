@@ -20,7 +20,10 @@ public class AccountTest extends BaseTest{
         account.setDescription("nothing");
         loginPage.openPage(LOGIN_URL)
                 .login(username, password);
+//        newAccountModalPage.openNewAccountModalPage()
+//                        .createNewAccount(account);
         newAccountModalPage.openPage(NEW_ACCOUNT_MODAL_URL)
+                .openPage(NEW_ACCOUNT_MODAL_URL)
                 .createNewAccount(account);
         accountListPage.openPage(ACCOUNT_LIST_URL);
         Assert.assertEquals(accountListPage.getExistAccountName(account.getAccountName()), account.getAccountName());

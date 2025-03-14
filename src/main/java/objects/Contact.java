@@ -15,4 +15,11 @@ public class Contact {
     private String contactAccountName;
     private String description;
     private String phone;
+
+    public String getFullName() {
+        return getContactFirstName() + " " + getContactLastName();
+    }
+    public String getNameWithSalutation() {
+        return getSalutation() + " " + getFullName();
+    }
 }
