@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountPage extends BasePage{
 
-//    public static final String DATA_BY_FIELD_NAME_XPATH = "//*[@class='record-body-container']//*[text()='%s']";
     public static final String DATA_BY_FIELD_NAME_XPATH = "//*[@field-label='%s']//slot/*[@slot='outputField']";
 
     public AccountPage(WebDriver driver) {

@@ -38,9 +38,9 @@ public class ContactsTest extends BaseTest{
                 .openPage(NEW_CONTACT_MODAL_URL)
                 .createNewContact(contact);
         contactsListPage.openPage(CONTACT_LIST_URL);
-      Assert.assertEquals(contactsListPage.getExistContactName(contact.getContactFirstName(),contact.getContactLastName()), contact.getFullName());
-      Assert.assertEquals(contactsListPage.getExistPhoneNumberByContactName(contact.getContactFirstName(),contact.getContactLastName()),contact.getPhone());
-      Assert.assertEquals(contactsListPage.getExistContactOwnerByContactName(contact.getContactFirstName(),contact.getContactLastName()),contact.getContactOwner());
+        Assert.assertEquals(contactsListPage.getExistContactName(contact.getContactFirstName(),contact.getContactLastName()), contact.getFullName());
+        Assert.assertEquals(contactsListPage.getExistPhoneNumberByContactName(contact.getContactFirstName(),contact.getContactLastName()),contact.getPhone());
+        Assert.assertEquals(contactsListPage.getExistContactOwnerByContactName(contact.getContactFirstName(),contact.getContactLastName()),contact.getContactOwner());
     }
 
     @Test

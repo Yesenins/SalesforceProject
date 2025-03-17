@@ -11,7 +11,6 @@ import pages.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest implements ITestConstants, IConstants {

@@ -25,7 +25,6 @@ public class AccountTest extends BaseTest{
                 .createNewAccount(account);
         accountListPage.openPage(ACCOUNT_LIST_URL);
         Assert.assertEquals(accountListPage.getExistAccountName(account.getAccountName()), account.getAccountName());
-        //некорректная проверка
         Assert.assertEquals(accountListPage.getExistPhoneNumberByAccountName(account.getAccountName()),account.getPhone());
         accountListPage
                 .clickOnAccountName(account.getAccountName());
