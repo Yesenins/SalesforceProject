@@ -18,6 +18,7 @@ public class AccountTest extends BaseTest{
         account.setType("Investor");
         account.setPhone("80256379284");
         account.setDescription("nothing");
+        account.setAccountOwner("ser sas");
         loginPage.openPage(LOGIN_URL)
                 .login(username, password);
         newAccountModalPage.openPage(NEW_ACCOUNT_MODAL_URL)
@@ -29,5 +30,10 @@ public class AccountTest extends BaseTest{
         accountListPage
                 .clickOnAccountName(account.getAccountName());
         Assert.assertEquals(accountPage.getFieldValueByName("Account Name"), account.getAccountName());
+        Assert.assertEquals(accountPage.getFieldValueByName("Website"), account.getWebSite());
+        Assert.assertEquals(accountPage.getFieldValueByName("Type"), account.getType());
+        Assert.assertEquals(accountPage.getDescriptionInAccount("Description"), account.getDescription());
+        Assert.assertEquals(accountPage.getAccountOwnerInAccount("Account Owner", "ser sas"), account.getAccountOwner());
+        Assert.assertEquals(accountPage.getPhoneInAccount("Phone"), account.getPhone());
     }
 }

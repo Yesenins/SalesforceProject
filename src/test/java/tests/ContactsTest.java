@@ -73,7 +73,7 @@ public class ContactsTest extends BaseTest{
         Assert.assertEquals(contactsPage.getFieldValueByNameContacts("Name"), contact.getNameWithSalutation());
         Assert.assertEquals(contactsPage.getAccountNameInContacts("Account Name",account.getAccountName()),contact.getContactAccountName());
         Assert.assertEquals(contactsPage.getDescriptionInContacts("Description"), contact.getDescription());
-        Assert.assertEquals(contactsPage.getContactOwnerInContacts("Contact Owner"),contact.getContactOwner());
+        Assert.assertEquals(contactsPage.getContactOwnerInContacts("Contact Owner", "ser sas"),contact.getContactOwner());
         Assert.assertEquals(contactsPage.getContactPhoneInContacts("Phone"), contact.getPhone());
     }
 }
