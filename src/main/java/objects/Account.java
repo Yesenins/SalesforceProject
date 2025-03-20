@@ -14,4 +14,5 @@ public class Account {
     private String type;
     private String description;
     private String phone;
+    private String accountOwner;
 }

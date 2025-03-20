@@ -24,19 +24,14 @@ public class NewContactsModalPage extends BasePage{
     @FindBy(name = "CancelEdit")
     public WebElement cancelButton;
 
+    @FindBy(xpath = "//*[@data-id='Contact']//*[@role='button']")
+    public WebElement dropdown;
+
     public NewContactsModalPage(WebDriver driver) {
         super(driver);
     }
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-    public NewContactsModalPage createNewContactButton() {
-        WebElement dropdown = driver.findElement(By.xpath("//*[@data-id=\"Contact\"]//*[@role=\"button\"]"));
-        dropdown.click();
-        WebElement newContact = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[href=\"/003/e?sObjectName=Contact&save_new_url=%2F003%2Fe&navigationLocation=LIST_VIEW\"]")));
-        newContact.click();
-        return this;
-    }
 
     public NewContactsModalPage openPage(String url) {
 
