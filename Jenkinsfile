@@ -15,7 +15,7 @@ pipeline {
    stages {
       stage('Testing') {
          steps {
-            // Get some code from a GitHub repository
+            // Get some code from a GitHub reposit ory
             git branch: "${params.BRANCH}", url: 'https://github.com/Yesenins/SalesforceProject.git'
 
             // Run Maven on a Unix agent.
