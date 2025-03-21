@@ -15,14 +15,14 @@ pipeline {
    stages {
       stage('Testing') {
          steps {
-            // Get some code from a GitHub reposit ory
+            // Get some code from a GitHub repository
             git branch: "${params.BRANCH}", url: 'https://github.com/Yesenins/SalesforceProject.git'
 
             // Run Maven on a Unix agent.
 //             sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "mvn clean -Dtest=ContactsTest test"
+            bat "mvn clean -Dtest=AccountTest test"
          }
 
          post {
